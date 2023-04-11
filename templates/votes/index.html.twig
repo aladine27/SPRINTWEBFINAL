@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votes index{% endblock %}
+{% block header %}{% endblock %}
+{% block body %}
+      <div class="row" style="display: flex; align-items: center; justify-content: center; margin-top: 150px;">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Your Votes</h5>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Artist</th>
+                <th>VoteA</th>
+                <th>Event</th>
+                <th>VoteE</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for vote in votes %}
+            <tr>
+                <td></td>
+                <td>{{ vote.VoteA }}</td>
+                <td></td>
+                <td>{{ vote.VoteE }}</td>
+                <td>
+                     <form method="post" action="{{ path('app_votes_delete', {'id': vote.id}) }}" >
+                   <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vote.id) }}">
+                 <button class="btn btn-danger">Delete</button>
+                     </form>
+                </td>
+                <td>
+                      <a class="btn btn-danger" href="{{ path('app_votes_edit', {'id': vote.id}) }}">Edit </a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <a class="btn btn-danger" href="{{ path('app_votes_new') }}">Create new</a>
+     <a class="btn btn-danger" href="{{ path('app_Profile') }}">Back to Profile</a>
+               </div>
+            </div>
+        </div>
+    </div>
+
+   
+{% endblock %}

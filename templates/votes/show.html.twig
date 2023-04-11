@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votes{% endblock %}
+{% block header %} {% endblock %}
+
+{% block body %}
+    <h1>Votes</h1>
+
+    <table id="user-table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Artist</th>
+                                <th>Your Vote</th>
+                                <th>Event</th>
+                                <th>Your Vote </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                                <tr>
+                                    <td></td>
+                                    <td>{{ vote.VoteA }}</td>
+                                    <td></td>
+                                    <td>{{ vote.VoteE }}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{ path('supp_user',{'id':vote.id}) }}">Delete</a>
+                                    </td>
+                                </tr>
+                            
+                        </tbody>
+                    </table>
+
+    <a href="{{ path('app_votes_index') }}">back to list</a>
+
+    <a href="{{ path('app_votes_edit', {'id': vote.id}) }}">edit</a>
+
+   
+{% endblock %}

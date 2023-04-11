@@ -1,0 +1,14 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+index:
+    path: /displayUsers
+    controller: App\Controller\RegistrationController::index
+deleteUser:
+    path: /removeprofile
+    controller: App\Controller\UserController::deleteUser
+
+ShowAdmin:
+    path: /AdminProfile
+    controller: App\Controller\AdminProfileController::ShowAdmin
+

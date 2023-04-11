@@ -1,0 +1,46 @@
+{% extends 'base1.html.twig' %}
+
+
+
+{% block body %}
+    <div class="row" style="display: flex; align-items: center; justify-content: center; margin-top: 150px;">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">List of Users</h5>
+
+                    <div class="search-bar">
+                        <input type="text" name="query" id="search-input" placeholder="Search" title="Enter search keyword">
+                    </div>
+
+                    <!-- Table with stripped rows -->
+                    <table id="user-table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Email</th>
+                                <th>Date of Birth</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in u %}
+                                <tr>
+                                    <td>{{ user.Nom }}</td>
+                                    <td>{{ user.Prenom }}</td>
+                                    <td>{{ user.Email }}</td>
+                                    <td>{{ user.Age|date("Y-m-d") }}</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="{{ path('supp_user',{'id':user.id}) }}">Delete</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- End table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block header %}{% endblock %}
+
+
+{% block body %}
+
+{% block stylecss %}
+
+<div style="background-image: url('{{ asset('bobo.jpg') }}');" >
+
+{% endblock %}
+
+
+
+
+ <div class="container">
+
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+
+              <div class="d-flex justify-content-center py-4">
+                <a href="index.html" class="logo d-flex align-items-center w-auto">
+                  <img src="UnoWeb.png" alt="">
+                  <span class="d-none d-lg-block">ART+</span>
+                </a>
+              </div><!-- End Logo -->
+
+              <div class="card mb-3">
+
+                <div class="card-body">
+
+                  <div class="pt-4 pb-2">
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
+                  </div>
+                      {{ form_start(registrationForm,{attr:{novalidate:'novalidate'}}) }}
+
+                  <form class="row g-3 needs-validation" novalidate="">
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">Your Name</label>
+                         {{ form_widget(registrationForm.Nom,{'attr':{'class':'form-control'}}) }}
+                          {{ form_errors(registrationForm.Nom) }}
+                 
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourSurname" class="form-label">Your Surname</label>
+                    {{ form_widget(registrationForm.Prenom,{'attr':{'class':'form-control'}}) }}
+                     {{ form_errors(registrationForm.Prenom) }}
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourAge" class="form-label">Date of birth</label>
+                       {{ form_widget(registrationForm.Age,{'attr':{'class':'form-control'}}) }}
+                       {{ form_errors(registrationForm.Age) }}
+                    </div>
+
+
+                      <div class="col-12">
+                      <label for="yourEmail" class="form-label">Your Email</label>
+                    {{ form_widget(registrationForm.email,{'attr':{'class':'form-control'}}) }}
+                     {{ form_errors(registrationForm.email) }}
+                    </div>
+
+                   
+                    <div class="col-12">
+                      <label for="yourPassword" class="form-label">Password</label>
+                       {{ form_widget(registrationForm.plainPassword,{'attr':{'class':'form-control'}}) }}
+                       {{ form_errors(registrationForm.plainPassword) }}
+                    </div>
+
+                    <div class="col-12">
+                      
+                      <div class="form-check">
+                        <div style="display: inline-block;">
+    <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+    {{ form_widget(registrationForm.agreeTerms) }}
+     {{ form_errors(registrationForm.agreeTerms) }}
+</div>
+                      </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                    </div>
+                      {{ form_end(registrationForm) }}
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a href="{{ path('app_login') }}">Log in</a></p>
+                    </div>
+                   
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+{% endblock %}
+

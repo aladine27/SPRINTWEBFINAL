@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Votes{% endblock %}
+{% block header %} {% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="card p-4">
+        <h1 class="card-title">Create new Votes</h1>
+
+        {{ include('votes/_form.html.twig') }}
+
+        <a href="{{ path('app_votes_index') }}" class="btn btn-secondary mt-2">back to list</a>
+    </div>
+</div>
+{% endblock %}
